@@ -2,9 +2,9 @@
 port: 7890
 socks-port: 7891
 allow-lan: true
-mode: Rule
-log-level: info
-external-controller: :9090
+mode: rule
+log-level: silent
+external-controller: 0.0.0.0:9090
 proxy-groups:
 - name: "\U0001F680 节点选择"
   type: select
@@ -262,6 +262,36 @@ proxy-groups:
   - STC
   filter: "(KR|Korea|KOR|首尔|韩|韓)"
 rules:
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- DOMAIN-KEYWORD,todesk,DIRECT
+- DOMAIN-KEYWORD,ahhhhfs,DIRECT
+- DOMAIN-KEYWORD,gov,DIRECT
+- "DOMAIN-KEYWORD,dmm,\U0001F1EF\U0001F1F5 日本节点"
+- "DOMAIN-KEYWORD,cu1.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu2.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu3.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu4.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu5.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu6.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu7.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu8.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu9.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f1.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f2.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f3.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f4.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f5.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f6.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f7.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f8.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f9.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,asytech,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,gacloud,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,crisp,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,apimicrosoft,\U0001F4BC 勤勤恳恳"
+- DOMAIN-KEYWORD,gtloli,☯️ 故障转移
 - "RULE-SET,BiliBili,\U0001F4FA 哔哩哔哩"
 - "RULE-SET,HBO,\U0001F3A5 HBO"
 - "RULE-SET,TikTok,\U0001F680 手动切换"
@@ -336,79 +366,79 @@ rule-providers:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
-    path: "./ruleset/reject.yaml"
+    path: "./rule_provider/reject.yaml"
     interval: 86400
   icloud:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt
-    path: "./ruleset/icloud.yaml"
+    path: "./rule_provider/icloud.yaml"
     interval: 86400
   apple:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt
-    path: "./ruleset/apple.yaml"
+    path: "./rule_provider/apple.yaml"
     interval: 86400
   google:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt
-    path: "./ruleset/google.yaml"
+    path: "./rule_provider/google.yaml"
     interval: 86400
   proxy:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
-    path: "./ruleset/proxy.yaml"
+    path: "./rule_provider/proxy.yaml"
     interval: 86400
   direct:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
-    path: "./ruleset/direct.yaml"
+    path: "./rule_provider/direct.yaml"
     interval: 86400
   private:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
-    path: "./ruleset/private.yaml"
+    path: "./rule_provider/private.yaml"
     interval: 86400
   gfw:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
-    path: "./ruleset/gfw.yaml"
+    path: "./rule_provider/gfw.yaml"
     interval: 86400
   tld-not-cn:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt
-    path: "./ruleset/tld-not-cn.yaml"
+    path: "./rule_provider/tld-not-cn.yaml"
     interval: 86400
   telegramcidr:
     type: http
     behavior: ipcidr
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt
-    path: "./ruleset/telegramcidr.yaml"
+    path: "./rule_provider/telegramcidr.yaml"
     interval: 86400
   cncidr:
     type: http
     behavior: ipcidr
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
-    path: "./ruleset/cncidr.yaml"
+    path: "./rule_provider/cncidr.yaml"
     interval: 86400
   lancidr:
     type: http
     behavior: ipcidr
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
-    path: "./ruleset/lancidr.yaml"
+    path: "./rule_provider/lancidr.yaml"
     interval: 86400
   applications:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt
-    path: "./ruleset/applications.yaml"
+    path: "./rule_provider/applications.yaml"
     interval: 86400
   Diablo4-Asia:
     type: http
@@ -420,119 +450,125 @@ rule-providers:
   Blizzard:
     type: http
     behavior: classical
-    path: "./ruleset/Blizzard.yaml"
+    path: "./rule_provider/Blizzard.yaml"
     format: text
-    url: https://raw.githubusercontent.com/LM-Firefly/Rules/master/Game/Blizzard.list
+    url: https://fastly.jsdelivr.net/gh/LM-Firefly/Rules@master/Game/Blizzard.list
     interval: 86400
   OpenAI:
     type: http
     behavior: classical
-    path: "./ruleset/OpenAI.yaml"
+    path: "./rule_provider/OpenAI.yaml"
     format: text
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
+    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.list
     interval: 86400
   DisneyPlus:
     type: http
     behavior: classical
-    path: "./ruleset/DisneyPlus.yaml"
+    path: "./rule_provider/DisneyPlus.yaml"
     format: text
-    url: https://raw.githubusercontent.com/help-eeeee/ACL4SSR/master/Clash/Ruleset/DisneyPlus.list
+    url: https://fastly.jsdelivr.net/gh/help-eeeee/ACL4SSR@master/Clash/Ruleset/DisneyPlus.list
     interval: 86400
   GoogleFCM:
     type: http
     behavior: classical
     path: "./rule_provider/GoogleFCM.yaml"
     format: text
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/GoogleFCM.list
     interval: 86400
   Bing:
     type: http
     behavior: classical
-    path: "./ruleset/Bing.yaml"
+    path: "./rule_provider/Bing.yaml"
     format: text
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Bing.list
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Bing.list
     interval: 86400
   OneDrive:
     type: http
     behavior: classical
-    path: "./ruleset/OneDrive.yaml"
+    path: "./rule_provider/OneDrive.yaml"
     format: text
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/OneDrive.list
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/OneDrive.list
     interval: 86400
   Microsoft:
     type: http
     behavior: classical
-    path: "./ruleset/Microsoft.yaml"
+    path: "./rule_provider/Microsoft.yaml"
     format: text
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Microsoft.list
     interval: 86400
   Epic:
     type: http
     behavior: classical
-    path: "./ruleset/Epic.yaml"
+    path: "./rule_provider/Epic.yaml"
     format: text
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Epic.list
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Epic.list
     interval: 86400
   Origin:
     type: http
     behavior: classical
-    path: "./ruleset/Origin.yaml"
+    path: "./rule_provider/Origin.yaml"
     format: text
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Origin.list
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Origin.list
     interval: 86400
   Sony:
     type: http
     behavior: classical
-    path: "./ruleset/Sony.yaml"
+    path: "./rule_provider/Sony.yaml"
     format: text
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Sony.list
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Sony.list
     interval: 86400
   Steam:
     type: http
     behavior: classical
     path: "./rule_provider/Steam.yaml"
     format: text
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Steam.list
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Steam.list
     interval: 86400
   Nintendo:
     type: http
     behavior: classical
-    path: "./ruleset/Nintendo.yaml"
+    path: "./rule_provider/Nintendo.yaml"
     format: text
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Nintendo.list
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Nintendo.list
     interval: 86400
   Netflix:
     type: http
     behavior: classical
-    path: "./ruleset/Netflix.yaml"
+    path: "./rule_provider/Netflix.yaml"
     format: text
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Netflix.list
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Netflix.list
     interval: 86400
   TikTok:
     type: http
     behavior: classical
-    path: "./ruleset/TikTok.yaml"
+    path: "./rule_provider/TikTok.yaml"
     format: text
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list
+    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.list
     interval: 86400
   Bahamut:
     type: http
     behavior: classical
-    path: "./ruleset/Bahamut.yaml"
+    path: "./rule_provider/Bahamut.yaml"
     format: text
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bahamut/Bahamut.list
+    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bahamut/Bahamut.list
     interval: 86400
   BiliBili:
     type: http
     behavior: classical
-    path: "./ruleset/BiliBili.yaml"
+    path: "./rule_provider/BiliBili.yaml"
     format: text
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/BiliBili/BiliBili.list
     interval: 86400
   HBO:
     type: http
     behavior: classical
-    path: "./ruleset/HBO.yaml"
+    path: "./rule_provider/HBO.yaml"
     format: text
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/HBO/HBO.list
     interval: 86400
+tcp-concurrent: true
+unified-delay: true
+keep-alive-interval: 15
+profile:
+  store-selected: true
+  store-fake-ip: true
