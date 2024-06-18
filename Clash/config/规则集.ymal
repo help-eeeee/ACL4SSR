@@ -1,4 +1,4 @@
-
+---
 proxy-groups:
 - name: "\U0001F680 节点选择"
   type: select
