@@ -405,9 +405,7 @@ rule-providers:
   Bahamut:
    <<: *classical
    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Bahamut/Bahamut.yaml
-allow-lan: true
 mixed-port: 7890
-external-controller: 127.0.0.1:9090
 profile:
   store-selected: true
   store-fake-ip: true
