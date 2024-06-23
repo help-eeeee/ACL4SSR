@@ -1,10 +1,17 @@
 ---
+p:
+  type: http
+  interval: 86400
+  health-check: &1
+    enable: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
 port: 7890
 socks-port: 7891
 allow-lan: true
-mode: Rule
-log-level: info
-external-controller: :9090
+mode: rule
+log-level: silent
+external-controller: 0.0.0.0:9090
 proxy-groups:
 - name: "\U0001F680 节点选择"
   type: select
@@ -26,7 +33,7 @@ proxy-groups:
   - 橘色云
   - Miaona!
   - STC
-  url: https://www.google-analytics.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: '180'
   filter: "(新加坡|Singapore|台湾|Taiwan|香港|HK|Hong Kong|韩国|日本|Japan)"
 - name: "\U0001F3AE 游戏人间"
@@ -256,7 +263,36 @@ proxy-groups:
   - STC
   filter: "(KR|Korea|KOR|首尔|韩|韓)"
 rules:
-- "DOMAIN-KEYWORD,olelive,\U0001F680 节点选择"
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- DOMAIN-KEYWORD,todesk,DIRECT
+- DOMAIN-KEYWORD,ahhhhfs,DIRECT
+- DOMAIN-KEYWORD,gov,DIRECT
+- "DOMAIN-KEYWORD,dmm,\U0001F1EF\U0001F1F5 日本节点"
+- "DOMAIN-KEYWORD,cu1.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu2.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu3.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu4.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu5.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu6.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu7.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu8.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu9.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f1.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f2.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f3.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f4.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f5.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f6.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f7.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f8.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f9.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,asytech,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,gacloud,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,crisp,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,apimicrosoft,\U0001F4BC 勤勤恳恳"
+- DOMAIN-KEYWORD,gtloli,☯️ 故障转移
 - "RULE-SET,BiliBili,\U0001F4FA 哔哩哔哩"
 - "RULE-SET,HBO,\U0001F3A5 HBO"
 - "RULE-SET,TikTok,\U0001F680 手动切换"
@@ -288,141 +324,291 @@ rules:
 - "RULE-SET,telegramcidr,\U0001F4F2 电报消息"
 - "GEOIP,CN,\U0001F3AF 全球直连"
 - "MATCH,\U0001F41F 漏网之鱼"
-p: &p {type: http, interval: 86400, health-check: {enable: true, url: https://www.gstatic.com/generate_204, interval: 300}}
 proxy-providers:
   WgetCloud:
-    <<: *p
+    type: http
+    interval: 86400
+    health-check: *1
     override:
       additional-suffix: "『❤Wget』"
     url: http://jia.hdrly.top:25500/sub?target=clash&url=https%3A%2F%2Fbava8u2znaj6bdzzjnfb.wgetcloud.online%2Flink%2FBPZTYrqNJAbgVKU&emoji=true&list=false&sort=false&udp=true&tfo=false&scv=true&append_type=false&fdn=true&new_name=true
   橘色云:
-    <<: *p
+    type: http
+    interval: 86400
+    health-check: *1
     override:
       additional-suffix: "『\U0001F9E1橘色云』"
     url: https://sub3.91qaq.lol/api/v1/client/subscribe?token=3ac68dbb9b142dded9d90e7ac0b3f692
   Miaona!:
-    <<: *p
+    type: http
+    interval: 86400
+    health-check: *1
     override:
       additional-suffix: "『\U0001F49BMiaona!』"
     url: https://miaona.org/api/v1/client/subscribe?token=b1d360cab0dd6185bdb53aed17471a10
   STC:
-    <<: *p
+    type: http
+    interval: 86400
+    health-check: *1
     override:
       additional-suffix: "『\U0001F49ASTC』"
     url: https://cop.stc-anycast.com/link/8BiLSMqMRcfg2gFY?sub=2
 rule-anchor:
-  ipcidr: &ipcidr {type: http, interval: 86400, behavior: ipcidr, format: yaml}
-  domain: &domain {type: http, interval: 86400, behavior: domain, format: yaml}
-  classical: &classical {type: http, interval: 86400, behavior: classical, format: yaml}
+  ipcidr:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: yaml
+  domain:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: yaml
+  classical:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
 rule-providers:
   reject:
-    <<: *domain
+    type: http
+    interval: 86400
+    behavior: domain
+    format: yaml
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
   icloud:
-    <<: *domain
+    type: http
+    interval: 86400
+    behavior: domain
+    format: yaml
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt
   apple:
-    <<: *domain
+    type: http
+    interval: 86400
+    behavior: domain
+    format: yaml
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt
   google:
-    <<: *domain
+    type: http
+    interval: 86400
+    behavior: domain
+    format: yaml
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt
   proxy:
-    <<: *domain
+    type: http
+    interval: 86400
+    behavior: domain
+    format: yaml
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
   direct:
-    <<: *domain
+    type: http
+    interval: 86400
+    behavior: domain
+    format: yaml
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
   private:
-    <<: *domain
+    type: http
+    interval: 86400
+    behavior: domain
+    format: yaml
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
   gfw:
-    <<: *domain
+    type: http
+    interval: 86400
+    behavior: domain
+    format: yaml
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
   tld-not-cn:
-    <<: *domain
+    type: http
+    interval: 86400
+    behavior: domain
+    format: yaml
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt
   telegramcidr:
-    <<: *ipcidr
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: yaml
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt
   cncidr:
-    <<: *ipcidr
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: yaml
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
   lancidr:
-    <<: *ipcidr
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: yaml
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
   applications:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt
   OpenAI:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/OpenAI/OpenAI.yaml
   DisneyPlus:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Disney/Disney.yaml
   GoogleFCM:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/GoogleFCM/GoogleFCM.yaml
   Bing:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Bing/Bing.yaml
   OneDrive:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/OneDrive/OneDrive.yaml
   Microsoft:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Microsoft/Microsoft.yaml
   Epic:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Epic/Epic.yaml
   Origin:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Origin/Origin.yaml
   Sony:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Sony/Sony.yaml
   Steam:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Steam/Steam.yaml
   Nintendo:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Nintendo/Nintendo.yaml
   Netflix:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Netflix/Netflix_Classical.yaml
   TikTok:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/TikTok/TikTok.yaml
   HBO:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/HBO/HBO.yaml
   Blizzard:
-    <<: *classical
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Blizzard/Blizzard.yaml
   BiliBili:
-   <<: *classical
-   url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/BiliBili/BiliBili.yaml
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/BiliBili/BiliBili.yaml
   Bahamut:
-   <<: *classical
-   url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Bahamut/Bahamut.yaml
-mixed-port: 7890
-profile:
-  store-selected: true
-  store-fake-ip: true
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Bahamut/Bahamut.yaml
+redir-port: 7892
+tproxy-port: 7895
+mixed-port: 7893
+secret: '123456'
+bind-address: "*"
+external-ui: "/usr/share/openclash/ui"
+ipv6: false
+geodata-mode: true
+geodata-loader: standard
+tcp-concurrent: true
+unified-delay: true
+global-client-fingerprint: safari
 dns:
   enable: true
-  enhanced-mode: fake-ip
-  fake-ip-range: 28.0.0.1/8
-  fake-ip-filter:
-    - "*"
-    - "+.lan"
-    - "+.local"
-  default-nameserver:
-    - 223.5.5.5
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
   fallback:
     - tls://8.8.8.8:853
     - https://1.1.1.1/dns-query
-
+  default-nameserver:
+    - 223.5.5.5
+  proxy-server-nameserver:
+  - quic://223.5.5.5
+  - https://223.6.6.6#h3=true
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  force-domain:
+  - "+.netflix.com"
+  - "+.nflxvideo.net"
+  - "+.amazonaws.com"
+  - "+.media.dssott.com"
+  skip-domain:
+  - "+.apple.com"
+  - Mijia Cloud
+  - dlg.io.mi.com
+  sniff:
+    TLS:
+      ports:
+      - 443
+      - 8443
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+tun:
+  enable: true
+  stack: mixed
+  device: utun
+  auto-route: false
+  auto-detect-interface: false
+  dns-hijack:
+  - tcp://any:53
+profile:
+  store-selected: true
+  store-fake-ip: true
