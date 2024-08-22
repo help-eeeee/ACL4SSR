@@ -562,6 +562,12 @@ rule-providers:
     behavior: classical
     format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Bahamut/Bahamut.yaml
+ipv6: false
+geodata-mode: true
+geodata-loader: standard
+tcp-concurrent: true
+unified-delay: true
+keep-alive-interval: 15
 dns:
   enable: true
   ipv6: false
@@ -570,8 +576,22 @@ dns:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
   fallback:
-    - https://8.8.8.8/dns-query
+    - tls://8.8.8.8:853
     - https://1.1.1.1/dns-query
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
+sniffer:
+  enable: true
+  force-dns-mapping: true
+tun:
+  enable: true
+  stack: mixed
+  device: utun
+  auto-route: false
+  auto-detect-interface: false
+  dns-hijack:
+  - tcp://any:53
+profile:
+  store-selected: true
+  store-fake-ip: true
