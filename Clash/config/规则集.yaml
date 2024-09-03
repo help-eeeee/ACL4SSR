@@ -399,15 +399,6 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
-  WgetCloud(SSR):
-    type: http
-    path: "./proxy_provider/WgetCloud(SSR).yaml"
-    url: http://jia.hdrly.top:25500/sub?target=clash&url=https%3A%2F%2Fbava8u2znaj6bdzzjnfb.wgetcloud.online%2Flink%2FBPZTYrqNJAbgVKU%3Ftarget%3Dmerlin%26simple%3D1&config=https%3A%2F%2Fraw.githubusercontent.com%2Fhelp-eeeee%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Full_NoAuto.ini&emoji=true&udp=true&sort=false&scv=false&list=true
-    interval: 43200
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
 rule-providers:
   reject:
     type: http
