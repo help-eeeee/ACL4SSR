@@ -1,0 +1,619 @@
+
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: silent
+external-controller: 0.0.0.0:9090
+proxy-groups:
+- name: "\U0001F680 节点选择"
+  type: select
+  proxies:
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+  - "☯️ 故障转移"
+  - DIRECT
+- name: "☯️ 故障转移"
+  type: fallback
+  disable-udp: false
+  proxies:
+  - "\U0001F1ED\U0001F1F0 香港负载均衡"
+  - "\U0001F1E8\U0001F1F3 台湾负载均衡"
+  - "\U0001F1F8\U0001F1EC 狮城负载均衡"
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  url: https://www.google-analytics.com/generate_204
+  interval: '180'
+  filter: "(新加坡|Singapore|台湾|Taiwan|香港|HK|Hong Kong|韩国|日本|Japan)"
+- name: "\U0001F3AE 游戏人间"
+  type: select
+  proxies:
+  - "☯️ 故障转移"
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+- name: "\U0001F4BC 勤勤恳恳"
+  type: select
+  proxies:
+  - "☯️ 故障转移"
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+- name: "\U0001F916 人工智障"
+  type: select
+  proxies:
+  - "☯️ 故障转移"
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+- name: "\U0001F3B6 TikTok"
+  type: select
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+- name: "\U0001F680 手动切换"
+  type: select
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+- name: "\U0001F4F2 电报消息"
+  type: select
+  proxies:
+  - "\U0001F680 节点选择"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+  - DIRECT
+- name: "\U0001F3A5 奈飞视频"
+  type: select
+  disable-udp: false
+  proxies:
+  - "\U0001F680 手动切换"
+  use:
+  - WgetCloud
+- name: "\U0001F3A5 Disney"
+  type: select
+  disable-udp: false
+  proxies:
+  - "\U0001F680 手动切换"
+  use:
+  - WgetCloud
+- name: "\U0001F3A5 HBO"
+  type: select
+  disable-udp: false
+  proxies:
+  - "\U0001F680 手动切换"
+  use:
+  - WgetCloud
+- name: "\U0001F4FA 巴哈姆特"
+  type: select
+  disable-udp: false
+  proxies:
+  - "\U0001F680 手动切换"
+  use:
+  - WgetCloud
+  filter: "(台|新北|彰化|TW|Taiwan)"
+- name: "\U0001F4FA 哔哩哔哩"
+  type: select
+  disable-udp: false
+  proxies:
+  - "\U0001F3AF 全球直连"
+  use:
+  - WgetCloud
+  filter: "(台|新北|彰化|TW|Taiwan|港|HK|Hong Kong)"
+- name: "\U0001F4E2 谷歌FCM"
+  type: select
+  proxies:
+  - DIRECT
+  - "\U0001F680 节点选择"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+- name: Ⓜ️ 微软Bing
+  type: select
+  proxies:
+  - DIRECT
+  - "\U0001F680 节点选择"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+- name: Ⓜ️ 微软云盘
+  type: select
+  proxies:
+  - DIRECT
+  - "\U0001F680 节点选择"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+- name: Ⓜ️ 微软服务
+  type: select
+  proxies:
+  - DIRECT
+  - "\U0001F680 节点选择"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+- name: "\U0001F34E 苹果服务"
+  type: select
+  proxies:
+  - DIRECT
+  - "\U0001F680 节点选择"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+- name: "\U0001F3AE 游戏平台"
+  type: select
+  proxies:
+  - DIRECT
+  - "\U0001F680 节点选择"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+- name: "\U0001F3AF 全球直连"
+  type: select
+  proxies:
+  - DIRECT
+  - "\U0001F680 节点选择"
+- name: "\U0001F41F 漏网之鱼"
+  type: select
+  proxies:
+  - "\U0001F680 节点选择"
+  - DIRECT
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+- name: "\U0001F1ED\U0001F1F0 香港节点"
+  type: select
+  disable-udp: false
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  filter: "(港|HK|Hong Kong)"
+- name: "\U0001F1EF\U0001F1F5 日本节点"
+  type: select
+  disable-udp: false
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  filter: "(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)"
+- name: "\U0001F1FA\U0001F1F2 美国节点"
+  type: select
+  disable-udp: false
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  filter: "(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
+- name: "\U0001F1F8\U0001F1EC 狮城节点"
+  type: select
+  disable-udp: false
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  filter: "(新加坡|坡|狮城|SG|Singapore)"
+- name: "\U0001F1E8\U0001F1F3 台湾节点"
+  type: select
+  disable-udp: false
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  filter: "(台|新北|彰化|TW|Taiwan)"
+- name: "\U0001F1F0\U0001F1F7 韩国节点"
+  type: select
+  disable-udp: false
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  filter: "(KR|Korea|KOR|首尔|韩|韓)"
+- name: "\U0001F1ED\U0001F1F0 香港负载均衡"
+  type: load-balance
+  use:
+  - WgetCloud
+  url: https://cp.cloudflare.com/generate_204
+  interval: 180
+  filter: "(香港)"
+  strategy: consistent-hashing
+- name: "\U0001F1E8\U0001F1F3 台湾负载均衡"
+  type: load-balance
+  use:
+  - WgetCloud
+  url: https://cp.cloudflare.com/generate_204
+  interval: 180
+  filter: "(台湾)"
+  strategy: consistent-hashing
+- name: "\U0001F1F8\U0001F1EC 狮城负载均衡"
+  type: load-balance
+  use:
+  - WgetCloud
+  url: https://cp.cloudflare.com/generate_204
+  interval: 180
+  filter: "(新加坡)"
+  strategy: consistent-hashing
+rules:
+- SCRIPT,quic,REJECT
+- SCRIPT,udp-cn,ProxyToCN
+- DOMAIN-KEYWORD,ahhhhfs,DIRECT
+- DOMAIN-KEYWORD,gov,DIRECT
+- "DOMAIN-KEYWORD,dmm,\U0001F1EF\U0001F1F5 日本节点"
+- "DOMAIN-KEYWORD,cu1.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu2.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu3.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu4.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu5.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu6.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu7.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu8.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu9.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f1.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f2.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f3.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f4.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f5.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f6.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f7.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f8.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f9.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,asytech,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,gacloud,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,crisp,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,apimicrosoft,\U0001F4BC 勤勤恳恳"
+- DOMAIN-KEYWORD,gtloli,☯️ 故障转移
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- "RULE-SET,BiliBili,\U0001F4FA 哔哩哔哩"
+- "RULE-SET,HBO,\U0001F3A5 HBO"
+- "RULE-SET,TikTok,\U0001F3B6 TikTok"
+- "RULE-SET,Diablo4-Asia,\U0001F3AE 游戏人间"
+- "RULE-SET,Blizzard,\U0001F3AE 游戏人间"
+- "RULE-SET,OpenAI,\U0001F916 人工智障"
+- "RULE-SET,DisneyPlus,\U0001F3A5 Disney"
+- "RULE-SET,GoogleFCM,\U0001F4E2 谷歌FCM"
+- RULE-SET,Bing,Ⓜ️ 微软Bing
+- RULE-SET,OneDrive,Ⓜ️ 微软云盘
+- RULE-SET,Microsoft,Ⓜ️ 微软服务
+- "RULE-SET,Nintendo,\U0001F3AE 游戏平台"
+- "RULE-SET,Steam,\U0001F3AE 游戏平台"
+- "RULE-SET,Sony,\U0001F3AE 游戏平台"
+- "RULE-SET,Origin,\U0001F3AE 游戏平台"
+- "RULE-SET,Epic,\U0001F3AE 游戏平台"
+- "RULE-SET,Bahamut,\U0001F4FA 巴哈姆特"
+- "RULE-SET,Netflix,\U0001F3A5 奈飞视频"
+- "RULE-SET,applications,\U0001F3AF 全球直连"
+- DOMAIN,clash.razord.top,DIRECT
+- DOMAIN,yacd.haishan.me,DIRECT
+- RULE-SET,private,DIRECT
+- "RULE-SET,icloud,\U0001F34E 苹果服务"
+- "RULE-SET,apple,\U0001F34E 苹果服务"
+- "RULE-SET,google,\U0001F680 节点选择"
+- "RULE-SET,proxy,\U0001F680 节点选择"
+- "RULE-SET,direct,\U0001F3AF 全球直连"
+- RULE-SET,lancidr,DIRECT
+- "RULE-SET,cncidr,\U0001F3AF 全球直连"
+- "RULE-SET,telegramcidr,\U0001F4F2 电报消息"
+- "GEOIP,CN,\U0001F3AF 全球直连"
+- "MATCH,\U0001F41F 漏网之鱼"
+proxy-providers:
+  WgetCloud:
+    override:
+      additional-suffix: "『❤Wget』"
+    type: http
+    path: "./proxy_provider/WgetCloud.yaml"
+    url: http://jia.hdrly.top:25500/sub?target=clash&url=https%3A%2F%2Fbava8u2znaj6bdzzjnfb.wgetcloud.online%2Flink%2FBPZTYrqNJAbgVKU&config=https%3A%2F%2Fraw.githubusercontent.com%2Fhelp-eeeee%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Full_NoAuto.ini&exclude=%E6%B5%81%E9%87%8F%7C%E5%A5%97%E9%A4%90&emoji=true&udp=true&sort=false&scv=true&list=true
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 360
+  橘色云:
+    override:
+      additional-suffix: "『\U0001F9E1橘色云』"
+    type: http
+    path: "./proxy_provider/橘色云.yaml"
+    url: https://sub3.91qaq.lol/api/v1/client/subscribe?token=3ac68dbb9b142dded9d90e7ac0b3f692
+    interval: 3600
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  Miaona!:
+    override:
+      additional-suffix: "『\U0001F49BMiaona!』"
+    type: http
+    path: "./proxy_provider/Miaona!.yaml"
+    url: https://miaona.org/api/v1/client/subscribe?token=b1d360cab0dd6185bdb53aed17471a10
+    interval: 43200
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  STC:
+    override:
+      additional-suffix: "『\U0001F49ASTC』"
+    type: http
+    path: "./proxy_provider/STC.yaml"
+    url: https://cop.stc-anycast.com/link/8BiLSMqMRcfg2gFY?sub=2
+    interval: 43200
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
+    path: "./rule_provider/reject.yaml"
+    interval: 86400
+  icloud:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt
+    path: "./rule_provider/icloud.yaml"
+    interval: 86400
+  apple:
+    type: http
+    behavior: classical
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Apple/Apple_Classical.yaml
+    path: "./rule_provider/apple.yaml"
+    interval: 86400
+  google:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt
+    path: "./rule_provider/google.yaml"
+    interval: 86400
+  proxy:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
+    path: "./rule_provider/proxy.yaml"
+    interval: 86400
+  direct:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
+    path: "./rule_provider/direct.yaml"
+    interval: 86400
+  private:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
+    path: "./rule_provider/private.yaml"
+    interval: 86400
+  gfw:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
+    path: "./rule_provider/gfw.yaml"
+    interval: 86400
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt
+    path: "./rule_provider/tld-not-cn.yaml"
+    interval: 86400
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt
+    path: "./rule_provider/telegramcidr.yaml"
+    interval: 86400
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
+    path: "./rule_provider/cncidr.yaml"
+    interval: 86400
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
+    path: "./rule_provider/lancidr.yaml"
+    interval: 86400
+  applications:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt
+    path: "./rule_provider/applications.yaml"
+    interval: 86400
+  Diablo4-Asia:
+    type: http
+    behavior: classical
+    path: "./rule_provider/Diablo4-Asia.yaml"
+    format: text
+    url: https://fastly.jsdelivr.net/gh/help-eeeee/ACL4SSR@master/Clash/Ruleset/Diablo4-Asia.list
+    interval: 86400
+  OpenAI:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/OpenAI/OpenAI.yaml
+  DisneyPlus:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Disney/Disney.yaml
+  GoogleFCM:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/GoogleFCM/GoogleFCM.yaml
+  Bing:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Bing/Bing.yaml
+  OneDrive:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/OneDrive/OneDrive.yaml
+  Microsoft:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Microsoft/Microsoft.yaml
+  Epic:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Epic/Epic.yaml
+  Origin:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Origin/Origin.yaml
+  Sony:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Sony/Sony.yaml
+  Steam:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Steam/Steam.yaml
+  Nintendo:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Nintendo/Nintendo.yaml
+  Netflix:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Netflix/Netflix_Classical.yaml
+  TikTok:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/TikTok/TikTok.yaml
+  HBO:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/HBO/HBO.yaml
+  Blizzard:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Blizzard/Blizzard.yaml
+  BiliBili:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/BiliBili/BiliBili.yaml
+  Bahamut:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Bahamut/Bahamut.yaml
+ipv6: false
+geodata-mode: true
+geodata-loader: standard
+unified-delay: true
+keep-alive-interval: 15
+global-client-fingerprint: safari
+dns:
+  enable: true
+  ipv6: false
+  default-nameserver: [223.5.5.5, 119.29.29.29]
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  nameserver: ["https://doh.pub/dns-query", "https://dns.alidns.com/dns-query"]
+  fallback:
+    [
+      "https://doh.dns.sb/dns-query",
+      "https://dns.cloudflare.com/dns-query",
+      "https://dns.twnic.tw/dns-query",
+      "tls://8.8.4.4:853",
+    ]
+  fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
+sniffer:
+  enable: true
+  force-dns-mapping: true
+script:
+  shortcuts: # 可以在 rule 中引用
+    quic: network == 'udp' and dst_port == 443 # 匹配 QUIC 协议
+    udp-cn: network == 'udp' and geoip(dst_ip if dst_ip != '' else resolve_ip(host)) == 'CN' # 匹配发往 CN 的 UDP
+    instagram-quic: network == 'udp' and dst_port == 443 and match_geosite('instagram') # 匹配 Instagram 的 QUIC
