@@ -19,47 +19,51 @@ proxy-groups:
   - DIRECT
 - name: "☯️ 故障转移"
   type: fallback
-  disable-udp: false
   use:
   - WgetCloud
+  - 灵车
   - 橘色云
   - Miaona!
-  - STC
+  - 极速
   url: http://www.gstatic.com/generate_204
-  interval: '180'
-  filter: "(新加坡|Singapore|台湾|Taiwan|香港|HK|Hong Kong|韩国|日本|Japan)"
+  interval: 180
+  filter: "(新加坡|Singapore|SG|台湾|Taiwan|TW|香港|HK|Hong Kong|韩国|日本|Japan)"
 - name: "\U0001F4BC 勤勤恳恳"
   type: select
   proxies:
   - "☯️ 故障转移"
   use:
   - WgetCloud
+  - 灵车
   - 橘色云
   - Miaona!
-  - STC
+  - 极速
 - name: "\U0001F916 人工智障"
   type: select
   proxies:
   - "☯️ 故障转移"
   use:
   - WgetCloud
+  - 灵车
   - 橘色云
   - Miaona!
-  - STC
+  - 极速
 - name: "\U0001F3B6 TikTok"
   type: select
   use:
   - WgetCloud
+  - 灵车
   - 橘色云
   - Miaona!
-  - STC
+  - 极速
 - name: "\U0001F680 手动切换"
   type: select
   use:
   - WgetCloud
+  - 灵车
   - 橘色云
   - Miaona!
-  - STC
+  - 极速
 - name: "\U0001F4F2 电报消息"
   type: select
   proxies:
@@ -93,14 +97,6 @@ proxy-groups:
   - "\U0001F680 手动切换"
   use:
   - WgetCloud
-- name: "\U0001F4FA 巴哈姆特"
-  type: select
-  disable-udp: false
-  proxies:
-  - "\U0001F680 手动切换"
-  use:
-  - WgetCloud
-  filter: "(台|新北|彰化|TW|Taiwan)"
 - name: "\U0001F4FA 哔哩哔哩"
   type: select
   disable-udp: false
@@ -109,42 +105,6 @@ proxy-groups:
   use:
   - WgetCloud
   filter: "(台|新北|彰化|TW|Taiwan|港|HK|Hong Kong)"
-- name: "\U0001F4E2 谷歌FCM"
-  type: select
-  proxies:
-  - DIRECT
-  - "\U0001F680 节点选择"
-  - "\U0001F1FA\U0001F1F2 美国节点"
-  - "\U0001F1ED\U0001F1F0 香港节点"
-  - "\U0001F1E8\U0001F1F3 台湾节点"
-  - "\U0001F1F8\U0001F1EC 狮城节点"
-  - "\U0001F1EF\U0001F1F5 日本节点"
-  - "\U0001F1F0\U0001F1F7 韩国节点"
-  - "\U0001F680 手动切换"
-- name: Ⓜ️ 微软Bing
-  type: select
-  proxies:
-  - DIRECT
-  - "\U0001F680 节点选择"
-  - "\U0001F1FA\U0001F1F2 美国节点"
-  - "\U0001F1ED\U0001F1F0 香港节点"
-  - "\U0001F1E8\U0001F1F3 台湾节点"
-  - "\U0001F1F8\U0001F1EC 狮城节点"
-  - "\U0001F1EF\U0001F1F5 日本节点"
-  - "\U0001F1F0\U0001F1F7 韩国节点"
-  - "\U0001F680 手动切换"
-- name: Ⓜ️ 微软云盘
-  type: select
-  proxies:
-  - DIRECT
-  - "\U0001F680 节点选择"
-  - "\U0001F1FA\U0001F1F2 美国节点"
-  - "\U0001F1ED\U0001F1F0 香港节点"
-  - "\U0001F1E8\U0001F1F3 台湾节点"
-  - "\U0001F1F8\U0001F1EC 狮城节点"
-  - "\U0001F1EF\U0001F1F5 日本节点"
-  - "\U0001F1F0\U0001F1F7 韩国节点"
-  - "\U0001F680 手动切换"
 - name: Ⓜ️ 微软服务
   type: select
   proxies:
@@ -203,9 +163,10 @@ proxy-groups:
   disable-udp: false
   use:
   - WgetCloud
+  - 灵车
   - 橘色云
   - Miaona!
-  - STC
+  - 极速
   filter: "(港|HK|Hong Kong)"
 - name: "\U0001F1EF\U0001F1F5 日本节点"
   type: select
@@ -214,34 +175,37 @@ proxy-groups:
   - WgetCloud
   - 橘色云
   - Miaona!
-  - STC
+  - 极速
   filter: "(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)"
 - name: "\U0001F1FA\U0001F1F2 美国节点"
   type: select
   disable-udp: false
   use:
   - WgetCloud
+  - 灵车
   - 橘色云
   - Miaona!
-  - STC
+  - 极速
   filter: "(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
 - name: "\U0001F1F8\U0001F1EC 狮城节点"
   type: select
   disable-udp: false
   use:
   - WgetCloud
+  - 灵车
   - 橘色云
   - Miaona!
-  - STC
+  - 极速
   filter: "(新加坡|坡|狮城|SG|Singapore)"
 - name: "\U0001F1E8\U0001F1F3 台湾节点"
   type: select
   disable-udp: false
   use:
   - WgetCloud
+  - 灵车
   - 橘色云
   - Miaona!
-  - STC
+  - 极速
   filter: "(台|新北|彰化|TW|Taiwan)"
 - name: "\U0001F1F0\U0001F1F7 韩国节点"
   type: select
@@ -250,7 +214,7 @@ proxy-groups:
   - WgetCloud
   - 橘色云
   - Miaona!
-  - STC
+  - 极速
   filter: "(KR|Korea|KOR|首尔|韩|韓)"
 script:
   shortcuts: # 使用表达式编写自定义规则
@@ -320,17 +284,17 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 360
   橘色云:
     override:
       additional-suffix: "『\U0001F9E1橘色云』"
     type: http
-    url: https://sub3.91qaq.lol/api/v1/client/subscribe?token=3ac68dbb9b142dded9d90e7ac0b3f692
+    url: https://sub1.haiqilai.lol/api/v1/client/subscribe?token=ed55326225ddf7745eb3c79290ca548f
     interval: 86400
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 360
   Miaona!:
     override:
@@ -342,11 +306,21 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 360
-  STC:
+  极速:
     override:
-      additional-suffix: "『\U0001F49ASTC』"
+      additional-suffix: "『\U0001F49A极速』"
     type: http
-    url: https://cop.stc-anycast.com/link/8BiLSMqMRcfg2gFY?sub=2
+    url: https://jsjc.cfd/api/v1/client/subscribe?token=498c14b3176a0af4dd3223a4876b93e3
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 360
+  灵车:
+    override:
+      additional-suffix: "『\U0001F691瓷煽』"
+    type: http
+    url: https://sub.lingche.icu/api/v1/client/subscribe?token=8ac714f27976285fe3e7a05832fa22a4&types=vless
     interval: 86400
     health-check:
       enable: true
@@ -498,12 +472,6 @@ rule-providers:
     behavior: classical
     format: yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/HBO/HBO.yaml
-  Blizzard:
-    type: http
-    interval: 86400
-    behavior: classical
-    format: yaml
-    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Blizzard/Blizzard.yaml
   BiliBili:
     type: http
     interval: 86400
