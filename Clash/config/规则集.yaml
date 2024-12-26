@@ -1,10 +1,467 @@
-port: 7890
-socks-port: 7891
-allow-lan: true
-mode: rule
-log-level: silent
-external-controller: 0.0.0.0:9090
+proxy-groups:
+- name: "\U0001F680 节点选择"
+  type: select
+  proxies:
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+  - "☯️ 故障转移"
+  - DIRECT
+- name: "☯️ 故障转移"
+  type: fallback
+  disable-udp: true
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  url: http://www.gstatic.com/generate_204
+  interval: '180'
+  filter: "(新加坡|Singapore|SG|台湾|Taiwan|TW|香港|HK|Hong Kong|韩国|日本|Japan)"
+- name: "\U0001F4BC 勤勤恳恳"
+  type: select
+  proxies:
+  - "☯️ 故障转移"
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+- name: "\U0001F916 人工智障"
+  type: select
+  proxies:
+  - "☯️ 故障转移"
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+- name: "\U0001F3B6 TikTok"
+  type: select
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+- name: "\U0001F680 手动切换"
+  type: select
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+- name: "\U0001F4F2 电报消息"
+  type: select
+  proxies:
+  - "\U0001F680 节点选择"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+  - DIRECT
+- name: "\U0001F3A5 奈飞视频"
+  type: select
+  disable-udp: true
+  proxies:
+  - "\U0001F680 手动切换"
+  use:
+  - WgetCloud
+- name: "\U0001F3A5 Disney"
+  type: select
+  disable-udp: true
+  proxies:
+  - "\U0001F680 手动切换"
+  use:
+  - WgetCloud
+- name: "\U0001F3A5 HBO"
+  type: select
+  disable-udp: true
+  proxies:
+  - "\U0001F680 手动切换"
+  use:
+  - WgetCloud
+- name: "\U0001F4FA 哔哩哔哩"
+  type: select
+  disable-udp: true
+  proxies:
+  - "\U0001F3AF 全球直连"
+  use:
+  - WgetCloud
+  filter: "(台|新北|彰化|TW|Taiwan|港|HK|Hong Kong)"
+- name: Ⓜ️ 微软服务
+  type: select
+  proxies:
+  - DIRECT
+  - "\U0001F680 节点选择"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+- name: "\U0001F34E 苹果服务"
+  type: select
+  proxies:
+  - DIRECT
+  - "\U0001F680 节点选择"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+- name: "\U0001F3AE 游戏平台"
+  type: select
+  proxies:
+  - DIRECT
+  - "\U0001F680 节点选择"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+- name: "\U0001F3AF 全球直连"
+  type: select
+  proxies:
+  - DIRECT
+  - "\U0001F680 节点选择"
+- name: "\U0001F41F 漏网之鱼"
+  type: select
+  proxies:
+  - "\U0001F680 节点选择"
+  - DIRECT
+  - "\U0001F1ED\U0001F1F0 香港节点"
+  - "\U0001F1E8\U0001F1F3 台湾节点"
+  - "\U0001F1F8\U0001F1EC 狮城节点"
+  - "\U0001F1EF\U0001F1F5 日本节点"
+  - "\U0001F1FA\U0001F1F2 美国节点"
+  - "\U0001F1F0\U0001F1F7 韩国节点"
+  - "\U0001F680 手动切换"
+- name: "\U0001F1ED\U0001F1F0 香港节点"
+  type: select
+  disable-udp: true
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  filter: "(港|HK|Hong Kong)"
+- name: "\U0001F1EF\U0001F1F5 日本节点"
+  type: select
+  disable-udp: true
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  filter: "(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)"
+- name: "\U0001F1FA\U0001F1F2 美国节点"
+  type: select
+  disable-udp: true
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  filter: "(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
+- name: "\U0001F1F8\U0001F1EC 狮城节点"
+  type: select
+  disable-udp: true
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  filter: "(新加坡|坡|狮城|SG|Singapore)"
+- name: "\U0001F1E8\U0001F1F3 台湾节点"
+  type: select
+  disable-udp: true
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  filter: "(台|新北|彰化|TW|Taiwan)"
+- name: "\U0001F1F0\U0001F1F7 韩国节点"
+  type: select
+  disable-udp: true
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+  filter: "(KR|Korea|KOR|首尔|韩|韓)"
 unified-delay: true
+script:
+  shortcuts: # 可以在 rule 中引用
+    quic: network == 'udp' and dst_port == 443 # 匹配 QUIC 协议
+    udp-cn: network == 'udp' and geoip(dst_ip if dst_ip != '' else resolve_ip(host)) == 'CN' # 匹配发往 CN 的 UDP
+    instagram-quic: network == 'udp' and dst_port == 443 and match_geosite('instagram') # 匹配 Instagram 的 QUIC
+rules:
+- SCRIPT,quic,REJECT,no-track
+- DOMAIN-KEYWORD,ahhhhfs,DIRECT
+- DOMAIN-KEYWORD,gov,DIRECT
+- "DOMAIN-KEYWORD,dmm,\U0001F1EF\U0001F1F5 日本节点"
+- "DOMAIN-KEYWORD,cu1.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu2.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu3.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu4.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu5.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu6.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu7.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu8.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,cu9.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f1.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f2.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f3.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f4.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f5.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f6.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f7.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f8.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,f9.,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,asytech,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,gacloud,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,crisp,\U0001F4BC 勤勤恳恳"
+- "DOMAIN-KEYWORD,apimicrosoft,\U0001F4BC 勤勤恳恳"
+- DOMAIN-KEYWORD,gtloli,☯️ 故障转移
+- "RULE-SET,BiliBili,\U0001F4FA 哔哩哔哩"
+- "RULE-SET,HBO,\U0001F3A5 HBO"
+- "RULE-SET,TikTok,\U0001F3B6 TikTok"
+- "RULE-SET,OpenAI,\U0001F916 人工智障"
+- "RULE-SET,DisneyPlus,\U0001F3A5 Disney"
+- "RULE-SET,GoogleFCM,\U0001F4E2 谷歌FCM"
+- RULE-SET,Bing,Ⓜ️ 微软Bing
+- RULE-SET,OneDrive,Ⓜ️ 微软云盘
+- RULE-SET,Microsoft,Ⓜ️ 微软服务
+- "RULE-SET,Nintendo,\U0001F3AE 游戏平台"
+- "RULE-SET,Steam,\U0001F3AE 游戏平台"
+- "RULE-SET,Sony,\U0001F3AE 游戏平台"
+- "RULE-SET,Origin,\U0001F3AE 游戏平台"
+- "RULE-SET,Epic,\U0001F3AE 游戏平台"
+- "RULE-SET,Bahamut,\U0001F4FA 巴哈姆特"
+- "RULE-SET,Netflix,\U0001F3A5 奈飞视频"
+- "RULE-SET,applications,\U0001F3AF 全球直连"
+- RULE-SET,private,DIRECT
+- "RULE-SET,icloud,\U0001F34E 苹果服务"
+- "RULE-SET,apple,\U0001F34E 苹果服务"
+- "RULE-SET,google,\U0001F680 节点选择"
+- "RULE-SET,proxy,\U0001F680 节点选择"
+- "RULE-SET,direct,\U0001F3AF 全球直连"
+- RULE-SET,lancidr,DIRECT
+- "RULE-SET,cncidr,\U0001F3AF 全球直连"
+- "RULE-SET,telegramcidr,\U0001F4F2 电报消息"
+- "MATCH,\U0001F41F 漏网之鱼"
+proxy-providers:
+  WgetCloud:
+    override:
+      additional-suffix: "『❤Wget』"
+    type: http
+    url: http://jia.hdrly.top:25500/sub?target=clash&url=https%3A%2F%2Fbava8u2znaj6bdzzjnfb.wgetcloud.online%2Flink%2Fcf5bc2b8-312b-3dad-9173-913b62be59d2%3Fsimple%3D1&config=https%3A%2F%2Fraw.githubusercontent.com%2Fhelp-eeeee%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Full_NoAuto.ini&emoji=true&udp=true&sort=false&scv=true&list=true
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 360
+  橘色云:
+    override:
+      additional-suffix: "『\U0001F9E1橘色云』"
+    type: http
+    url: https://sub1.haiqilai.lol/api/v1/client/subscribe?token=ed55326225ddf7745eb3c79290ca548f
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 360
+  Miaona!:
+    override:
+      additional-suffix: "『\U0001F49BMiaona!』"
+    type: http
+    url: https://miaona.org/api/v1/client/subscribe?token=b1d360cab0dd6185bdb53aed17471a10
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 360
+  STC:
+    override:
+      additional-suffix: "『\U0001F49ASTC』"
+    type: http
+    url: https://miaona.org/api/v1/client/subscribe?token=b1d360cab0dd6185bdb53aed17471a10
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 360
+rule-providers:
+  icloud:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt
+    interval: 86400
+  apple:
+    type: http
+    behavior: classical
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Apple/Apple_Classical.yaml
+    interval: 86400
+  google:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt
+    path: "./rule_provider/google.yaml"
+    interval: 86400
+  proxy:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
+    interval: 86400
+  direct:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
+    interval: 86400
+  private:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
+    interval: 86400
+  gfw:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
+    interval: 86400
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt
+    interval: 86400
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt
+    interval: 86400
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
+    interval: 86400
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
+    interval: 86400
+  applications:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt
+    interval: 86400
+  OpenAI:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/OpenAI/OpenAI.yaml
+  DisneyPlus:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Disney/Disney.yaml
+  GoogleFCM:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/GoogleFCM/GoogleFCM.yaml
+  Bing:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Bing/Bing.yaml
+  OneDrive:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/OneDrive/OneDrive.yaml
+  Microsoft:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Microsoft/Microsoft.yaml
+  Epic:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Epic/Epic.yaml
+  Origin:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Origin/Origin.yaml
+  Sony:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Sony/Sony.yaml
+  Steam:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Steam/Steam.yaml
+  Nintendo:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Nintendo/Nintendo.yaml
+  Netflix:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Netflix/Netflix_Classical.yaml
+  TikTok:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/TikTok/TikTok.yaml
+  HBO:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/HBO/HBO.yaml
+  BiliBili:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/BiliBili/BiliBili.yaml
+  Bahamut:
+    type: http
+    interval: 86400
+    behavior: classical
+    format: yaml
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Bahamut/Bahamut.yaml
 profile:
   store-selected: true
   store-fake-ip: true
@@ -25,457 +482,3 @@ dns:
     - https://8.8.8.8/dns-query
     - https://1.1.1.1/dns-query
     - https://9.9.9.9/dns-query
-proxy-groups:
-- name: 🚀 节点选择
-  type: select
-  proxies:
-  - 🇭🇰 香港节点
-  - 🇨🇳 台湾节点
-  - 🇸🇬 狮城节点
-  - 🇯🇵 日本节点
-  - 🇺🇲 美国节点
-  - 🇰🇷 韩国节点
-  - 🚀 手动切换
-  - ☯️ 故障转移
-  - DIRECT
-- name: ☯️ 故障转移
-  type: fallback
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - 极速
-  url: https://www.gstatic.com/generate_204
-  interval: '180'
-  filter: "(新加坡|Singapore|SG|台湾|Taiwan|TW|香港|HK|Hong Kong|韩国|日本|Japan)"
-- name: 🎮 游戏人间
-  type: select
-  proxies:
-  - ☯️ 故障转移
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - 极速
-- name: 💼 勤勤恳恳
-  type: select
-  proxies:
-  - ☯️ 故障转移
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - 极速
-- name: 🤖 人工智障
-  type: select
-  proxies:
-  - ☯️ 故障转移
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - 极速
-- name: 🎶 TikTok
-  type: select
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - 极速
-- name: 🚀 手动切换
-  type: select
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - 极速
-- name: 📲 电报消息
-  type: select
-  proxies:
-  - 🚀 节点选择
-  - 🇸🇬 狮城节点
-  - 🇭🇰 香港节点
-  - 🇨🇳 台湾节点
-  - 🇯🇵 日本节点
-  - 🇺🇲 美国节点
-  - 🇰🇷 韩国节点
-  - 🚀 手动切换
-  - DIRECT
-- name: 🎥 奈飞视频
-  type: select
-  proxies:
-  - 🚀 手动切换
-  use:
-  - WgetCloud
-- name: 🎥 Disney
-  type: select
-  proxies:
-  - 🚀 手动切换
-  use:
-  - WgetCloud
-- name: 📺 哔哩哔哩
-  type: select
-  proxies:
-  - 🎯 全球直连
-  use:
-  - WgetCloud
-  filter: "(台|新北|彰化|TW|Taiwan|港|HK|Hong Kong)"
-- name: Ⓜ️ 微软服务
-  type: select
-  proxies:
-  - DIRECT
-  - 🚀 节点选择
-  - 🇺🇲 美国节点
-  - 🇭🇰 香港节点
-  - 🇨🇳 台湾节点
-  - 🇸🇬 狮城节点
-  - 🇯🇵 日本节点
-  - 🇰🇷 韩国节点
-  - 🚀 手动切换
-- name: 🍎 苹果服务
-  type: select
-  proxies:
-  - DIRECT
-  - 🚀 节点选择
-  - 🇺🇲 美国节点
-  - 🇭🇰 香港节点
-  - 🇨🇳 台湾节点
-  - 🇸🇬 狮城节点
-  - 🇯🇵 日本节点
-  - 🇰🇷 韩国节点
-  - 🚀 手动切换
-- name: 🎮 游戏平台
-  type: select
-  proxies:
-  - DIRECT
-  - 🚀 节点选择
-  - 🇺🇲 美国节点
-  - 🇭🇰 香港节点
-  - 🇨🇳 台湾节点
-  - 🇸🇬 狮城节点
-  - 🇯🇵 日本节点
-  - 🇰🇷 韩国节点
-  - 🚀 手动切换
-- name: 🎯 全球直连
-  type: select
-  proxies:
-  - DIRECT
-  - 🚀 节点选择
-- name: 🐟 漏网之鱼
-  type: select
-  proxies:
-  - 🚀 节点选择
-  - DIRECT
-  - 🇭🇰 香港节点
-  - 🇨🇳 台湾节点
-  - 🇸🇬 狮城节点
-  - 🇯🇵 日本节点
-  - 🇺🇲 美国节点
-  - 🇰🇷 韩国节点
-  - 🚀 手动切换
-- name: 🇭🇰 香港节点
-  type: select
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - 极速
-  filter: "(港|HK|Hong Kong)"
-- name: 🇯🇵 日本节点
-  type: select
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - 极速
-  filter: "(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)"
-- name: 🇺🇲 美国节点
-  type: select
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - 极速
-  filter: "(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
-- name: 🇸🇬 狮城节点
-  type: select
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - 极速
-  filter: "(新加坡|坡|狮城|SG|Singapore)"
-- name: 🇨🇳 台湾节点
-  type: select
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - 极速
-  filter: "(台|新北|彰化|TW|Taiwan)"
-- name: 🇰🇷 韩国节点
-  type: select
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - 极速
-  filter: "(KR|Korea|KOR|首尔|韩|韓)"
-rule-providers:
-  fakeip-filter:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/fakeip-filter.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/fakeip-filter.mrs"
-    interval: 86400
-
-  applications:
-    type: http
-    behavior: classical
-    format: text
-    path: ./rules/applications.list
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/applications.list"
-    interval: 86400
-
-  private:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/private.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/private.mrs"
-    interval: 86400
-
-  ads:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/ads.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/ads.mrs"
-    interval: 86400
-
-  microsoft-cn:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/microsoft-cn.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/microsoft-cn.mrs"
-    interval: 86400
-
-  apple-cn:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/apple-cn.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/apple-cn.mrs"
-    interval: 86400
-
-  google-cn:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/google-cn.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/google-cn.mrs"
-    interval: 86400
-
-  games-cn:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/games-cn.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/games-cn.mrs"
-    interval: 86400
-
-  netflix:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/netflix.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/netflix.mrs"
-    interval: 86400
-
-  disney:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/disney.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/disney.mrs"
-    interval: 86400
-
-  max:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/max.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/max.mrs"
-    interval: 86400
-
-  primevideo:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/primevideo.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/primevideo.mrs"
-    interval: 86400
-
-  appletv:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/appletv.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/appletv.mrs"
-    interval: 86400
-
-  youtube:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/youtube.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/youtube.mrs"
-    interval: 86400
-
-  tiktok:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/tiktok.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/tiktok.mrs"
-    interval: 86400
-
-  bilibili:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/bilibili.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/bilibili.mrs"
-    interval: 86400
-
-  ai:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/ai.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/ai.mrs"
-    interval: 86400
-
-  networktest:
-    type: http
-    behavior: classical
-    format: text
-    path: ./rules/networktest.list
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/networktest.list"
-    interval: 86400
-
-  proxy:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/proxy.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/proxy.mrs"
-    interval: 86400
-
-  cn:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/cn.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/cn.mrs"
-    interval: 86400
-
-  netflixip:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    path: ./rules/netflixip.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/netflixip.mrs"
-    interval: 86400
-
-  telegramip:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    path: ./rules/telegramip.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/telegramip.mrs"
-    interval: 86400
-
-  privateip:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    path: ./rules/privateip.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/privateip.mrs"
-    interval: 86400
-
-  cnip:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    path: ./rules/cnip.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/clash-ruleset/cnip.mrs"
-    interval: 86400
-script:
-  shortcuts: # 可以在 rule 中引用
-    quic: network == 'udp' and dst_port == 443 # 匹配 QUIC 协议
-    udp-cn: network == 'udp' and geoip(dst_ip if dst_ip != '' else resolve_ip(host)) == 'CN' # 匹配发往 CN 的 UDP
-    instagram-quic: network == 'udp' and dst_port == 443 and match_geosite('instagram') # 匹配 Instagram 的 QUIC
-rules:
-- SCRIPT,quic,REJECT,no-track
-- RULE-SET,ai,🤖 人工智障
-- RULE-SET,microsoft-cn,Ⓜ️ 微软服务
-- RULE-SET,max,🚀 节点选择
-- RULE-SET,bilibili,📺 哔哩哔哩
-- RULE-SET,tiktok,🎶 TikTok
-- RULE-SET,disney,🎥 Disney
-- RULE-SET,games-cn,🎮 游戏平台
-- RULE-SET,netflix,🎥 奈飞视频
-- RULE-SET,apple-cn,🍎 苹果服务
-- RULE-SET,google-cn,🚀 节点选择
-- RULE-SET,private,DIRECT
-- RULE-SET,proxy,🚀 节点选择
-- RULE-SET,cn,🎯 全球直连
-- RULE-SET,telegramip,📲 电报消息
-- RULE-SET,netflixip,🎥 奈飞视频
-- RULE-SET,privateip,DIRECT
-- RULE-SET,cnip,🎯 全球直连
-- MATCH,🐟 漏网之鱼
-proxy-providers:
-  WgetCloud:
-    override:
-      additional-suffix: "『❤Wget』"
-    type: http
-    url: http://jia.hdrly.top:25500/sub?target=clash&url=https%3A%2F%2Fbava8u2znaj6bdzzjnfb.wgetcloud.online%2Flink%2Fcf5bc2b8-312b-3dad-9173-913b62be59d2%3Fsimple%3D1&config=https%3A%2F%2Fraw.githubusercontent.com%2Fhelp-eeeee%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Full_NoAuto.ini&emoji=true&udp=true&sort=false&scv=true&list=true
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 360
-  橘色云:
-    override:
-      additional-suffix: "『🧡橘色云』"
-    type: http
-    url: https://sub1.haiqilai.lol/api/v1/client/subscribe?token=ed55326225ddf7745eb3c79290ca548f
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 360
-  Miaona!:
-    override:
-      additional-suffix: "『💛Miaona!』"
-    type: http
-    url: https://miaona.org/api/v1/client/subscribe?token=b1d360cab0dd6185bdb53aed17471a10
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 360
-  极速:
-    override:
-      additional-suffix: "『💚Mitce』"
-    type: http
-    url: https://app.mitce.com/?sid=172982&token=srvznue
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 360
