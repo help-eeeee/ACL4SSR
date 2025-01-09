@@ -480,5 +480,5 @@ dns:
     - https://9.9.9.9/dns-query
   nameserver-policy:
     geosite:cn:
-    - 202.100.199.8
-    - 202.100.192.68
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
