@@ -1,0 +1,493 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: silent
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  respect-rules: true
+  nameserver:
+  - https://doh.apad.pro/dns-query
+  - https://sunnygyl.com/dns-query
+  - https://9.9.9.9/dns-query
+  proxy-server-nameserver:
+  - https://sunnygyl.com/dns-query
+  - 223.5.5.5
+  - 119.29.29.29
+  nameserver-policy:
+    rule-set:cn:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+proxy-groups:
+- name: 🚀 节点选择
+  type: select
+  proxies:
+  - 🇭🇰 香港节点
+  - 🇨🇳 台湾节点
+  - 🇸🇬 狮城节点
+  - 🇯🇵 日本节点
+  - 🇺🇲 美国节点
+  - 🇰🇷 韩国节点
+  - 🚀 手动切换
+  - ☯️ 故障转移
+  - DIRECT
+- name: ☯️ 故障转移
+  type: fallback
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - 极速
+  url: https://www.gstatic.com/generate_204
+  interval: '180'
+  filter: "(新加坡|Singapore|SG|台湾|Taiwan|TW|香港|HK|Hong Kong|韩国|日本|Japan)"
+- name: 🎮 游戏人间
+  type: select
+  proxies:
+  - ☯️ 故障转移
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - 极速
+- name: 💼 勤勤恳恳
+  type: select
+  proxies:
+  - ☯️ 故障转移
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - 极速
+- name: 🤖 人工智障
+  type: select
+  proxies:
+  - ☯️ 故障转移
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - 极速
+- name: 🎶 TikTok
+  type: select
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - 极速
+- name: 🚀 手动切换
+  type: select
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - 极速
+- name: 📲 电报消息
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - 🇸🇬 狮城节点
+  - 🇭🇰 香港节点
+  - 🇨🇳 台湾节点
+  - 🇯🇵 日本节点
+  - 🇺🇲 美国节点
+  - 🇰🇷 韩国节点
+  - 🚀 手动切换
+  - DIRECT
+- name: 🎥 奈飞视频
+  type: select
+  proxies:
+  - 🚀 手动切换
+  use:
+  - WgetCloud
+- name: 🎥 Disney
+  type: select
+  proxies:
+  - 🚀 手动切换
+  use:
+  - WgetCloud
+- name: 📺 哔哩哔哩
+  type: select
+  proxies:
+  - 🎯 全球直连
+  use:
+  - WgetCloud
+  filter: "(台|新北|彰化|TW|Taiwan|港|HK|Hong Kong)"
+- name: Ⓜ️ 微软服务
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+  - 🇺🇲 美国节点
+  - 🇭🇰 香港节点
+  - 🇨🇳 台湾节点
+  - 🇸🇬 狮城节点
+  - 🇯🇵 日本节点
+  - 🇰🇷 韩国节点
+  - 🚀 手动切换
+- name: 🍎 苹果服务
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+  - 🇺🇲 美国节点
+  - 🇭🇰 香港节点
+  - 🇨🇳 台湾节点
+  - 🇸🇬 狮城节点
+  - 🇯🇵 日本节点
+  - 🇰🇷 韩国节点
+  - 🚀 手动切换
+- name: 🎮 游戏平台
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+  - 🇺🇲 美国节点
+  - 🇭🇰 香港节点
+  - 🇨🇳 台湾节点
+  - 🇸🇬 狮城节点
+  - 🇯🇵 日本节点
+  - 🇰🇷 韩国节点
+  - 🚀 手动切换
+- name: 🎯 全球直连
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 🐟 漏网之鱼
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - DIRECT
+  - 🇭🇰 香港节点
+  - 🇨🇳 台湾节点
+  - 🇸🇬 狮城节点
+  - 🇯🇵 日本节点
+  - 🇺🇲 美国节点
+  - 🇰🇷 韩国节点
+  - 🚀 手动切换
+- name: 🇭🇰 香港节点
+  type: select
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - 极速
+  filter: "(港|HK|Hong Kong)"
+- name: 🇯🇵 日本节点
+  type: select
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - 极速
+  filter: "(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)"
+- name: 🇺🇲 美国节点
+  type: select
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - 极速
+  filter: "(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
+- name: 🇸🇬 狮城节点
+  type: select
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - 极速
+  filter: "(新加坡|坡|狮城|SG|Singapore)"
+- name: 🇨🇳 台湾节点
+  type: select
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - 极速
+  filter: "(台|新北|彰化|TW|Taiwan)"
+- name: 🇰🇷 韩国节点
+  type: select
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - 极速
+  filter: "(KR|Korea|KOR|首尔|韩|韓)"
+rule-providers:
+  fakeip-filter:
+    type: http
+    behavior: domain
+    path: ./rules/fakeip-filter.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/fakeip-filter.yaml"
+    interval: 86400
+
+  applications:
+    type: http
+    behavior: classical
+    format: text
+    path: ./rules/applications.list
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/applications.list"
+    interval: 86400
+
+  private:
+    type: http
+    behavior: domain
+    path: ./rules/private.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/private.yaml"
+    interval: 86400
+
+  ads:
+    type: http
+    behavior: domain
+    path: ./rules/ads.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/ads.yaml"
+    interval: 86400
+
+  microsoft-cn:
+    type: http
+    behavior: domain
+    path: ./rules/microsoft-cn.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/microsoft-cn.yaml"
+    interval: 86400
+
+  apple-cn:
+    type: http
+    behavior: domain
+    path: ./rules/apple-cn.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/apple-cn.yaml"
+    interval: 86400
+
+  google-cn:
+    type: http
+    behavior: domain
+    path: ./rules/google-cn.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/google-cn.yaml"
+    interval: 86400
+
+  games-cn:
+    type: http
+    behavior: domain
+    path: ./rules/games-cn.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/games-cn.yaml"
+    interval: 86400
+
+  netflix:
+    type: http
+    behavior: domain
+    path: ./rules/netflix.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/netflix.yaml"
+    interval: 86400
+
+  disney:
+    type: http
+    behavior: domain
+    path: ./rules/disney.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/disney.yaml"
+    interval: 86400
+
+  max:
+    type: http
+    behavior: domain
+    path: ./rules/max.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/max.yaml"
+    interval: 86400
+
+  primevideo:
+    type: http
+    behavior: domain
+    path: ./rules/primevideo.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/primevideo.yaml"
+    interval: 86400
+
+  appletv:
+    type: http
+    behavior: domain
+    path: ./rules/appletv.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/appletv.yaml"
+    interval: 86400
+
+  youtube:
+    type: http
+    behavior: domain
+    path: ./rules/youtube.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/youtube.yaml"
+    interval: 86400
+
+  tiktok:
+    type: http
+    behavior: domain
+    path: ./rules/tiktok.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/tiktok.yaml"
+    interval: 86400
+
+  bilibili:
+    type: http
+    behavior: domain
+    path: ./rules/bilibili.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/bilibili.yaml"
+    interval: 86400
+
+  ai:
+    type: http
+    behavior: domain
+    path: ./rules/ai.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/ai.yaml"
+    interval: 86400
+
+  networktest:
+    type: http
+    behavior: classical
+    format: text
+    path: ./rules/networktest.list
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/networktest.list"
+    interval: 86400
+
+  proxy:
+    type: http
+    behavior: domain
+    path: ./rules/proxy.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/proxy.yaml"
+    interval: 86400
+
+  cn:
+    type: http
+    behavior: domain
+    path: ./rules/cn.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/cn.yaml"
+    interval: 86400
+
+  netflixip:
+    type: http
+    behavior: ipcidr
+    path: ./rules/netflixip.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/netflixip.yaml"
+    interval: 86400
+
+  telegramip:
+    type: http
+    behavior: ipcidr
+    path: ./rules/telegramip.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/telegramip.yaml"
+    interval: 86400
+
+  privateip:
+    type: http
+    behavior: ipcidr
+    path: ./rules/privateip.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/privateip.yaml"
+    interval: 86400
+
+  cnip:
+    type: http
+    behavior: ipcidr
+    path: ./rules/cnip.yaml
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/cnip.yaml"
+    interval: 86400
+script:
+  shortcuts: # 可以在 rule 中引用
+    quic: network == 'udp' and dst_port == 443 # 匹配 QUIC 协议
+    udp-cn: network == 'udp' and geoip(dst_ip if dst_ip != '' else resolve_ip(host)) == 'CN' # 匹配发往 CN 的 UDP
+    instagram-quic: network == 'udp' and dst_port == 443 and match_geosite('instagram') # 匹配 Instagram 的 QUIC
+rules:
+- DOMAIN-KEYWORD,ahhhhfs,DIRECT
+- DOMAIN-KEYWORD,.gov,DIRECT 
+- DOMAIN-KEYWORD,dmm,🇯🇵 日本节点
+- DOMAIN-KEYWORD,cu1.,🚀 手动切换
+- DOMAIN-KEYWORD,cu2.,🚀 手动切换
+- DOMAIN-KEYWORD,cu3.,🚀 手动切换
+- DOMAIN-KEYWORD,cu4.,🚀 手动切换
+- DOMAIN-KEYWORD,cu5.,🚀 手动切换
+- DOMAIN-KEYWORD,cu6.,🚀 手动切换
+- DOMAIN-KEYWORD,cu7.,🚀 手动切换
+- DOMAIN-KEYWORD,cu8.,🚀 手动切换
+- DOMAIN-KEYWORD,cu9.,🚀 手动切换
+- DOMAIN-KEYWORD,f1.,🚀 手动切换
+- DOMAIN-KEYWORD,f2.,🚀 手动切换
+- DOMAIN-KEYWORD,f3.,🚀 手动切换
+- DOMAIN-KEYWORD,f4.,🚀 手动切换
+- DOMAIN-KEYWORD,f5.,🚀 手动切换
+- DOMAIN-KEYWORD,f6.,🚀 手动切换
+- DOMAIN-KEYWORD,f7.,🚀 手动切换
+- DOMAIN-KEYWORD,f8.,🚀 手动切换
+- DOMAIN-KEYWORD,f9.,🚀 手动切换
+- DOMAIN-KEYWORD,hk1.,🚀 手动切换
+- DOMAIN-KEYWORD,hk2.,🚀 手动切换
+- DOMAIN-KEYWORD,hk3.,🚀 手动切换
+- DOMAIN-KEYWORD,hk4.,🚀 手动切换
+- DOMAIN-KEYWORD,hk5.,🚀 手动切换
+- DOMAIN-KEYWORD,hk6.,🚀 手动切换
+- DOMAIN-KEYWORD,hk7.,🚀 手动切换
+- DOMAIN-KEYWORD,hk8.,🚀 手动切换
+- DOMAIN-KEYWORD,hk9.,🚀 手动切换
+- DOMAIN-KEYWORD,asytech,💼 勤勤恳恳
+- DOMAIN-KEYWORD,gacloud,💼 勤勤恳恳
+- DOMAIN-KEYWORD,crisp,💼 勤勤恳恳
+- DOMAIN-KEYWORD,apimicrosoft,💼 勤勤恳恳
+- SCRIPT,quic,REJECT,no-track
+- RULE-SET,ai,🤖 人工智障
+- RULE-SET,microsoft-cn,Ⓜ️ 微软服务
+- RULE-SET,max,🚀 节点选择
+- RULE-SET,bilibili,📺 哔哩哔哩
+- RULE-SET,tiktok,🎶 TikTok
+- RULE-SET,disney,🎥 Disney
+- RULE-SET,games-cn,🎮 游戏平台
+- RULE-SET,netflix,🎥 奈飞视频
+- RULE-SET,apple-cn,🍎 苹果服务
+- RULE-SET,google-cn,🚀 节点选择
+- RULE-SET,private,DIRECT
+- RULE-SET,cn,🎯 全球直连
+- RULE-SET,proxy,🚀 节点选择
+- RULE-SET,telegramip,📲 电报消息
+- RULE-SET,netflixip,🎥 奈飞视频
+- RULE-SET,privateip,DIRECT
+- RULE-SET,cnip,🎯 全球直连
+- MATCH,🐟 漏网之鱼
+proxy-providers:
+  WgetCloud:
+    override:
+      additional-suffix: "『❤Wget』"
+    type: http
+    url: http://jia.hdrly.top:25500/sub?target=clash&url=https%3A%2F%2Fbava8u2znaj6bdzzjnfb.wgetcloud.online%2Flink%2Fcf5bc2b8-312b-3dad-9173-913b62be59d2%3Fsimple%3D1&config=https%3A%2F%2Fraw.githubusercontent.com%2Fhelp-eeeee%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Full_NoAuto.ini&emoji=true&udp=true&sort=false&scv=true&list=true
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 360
+  橘色云:
+    override:
+      additional-suffix: "『🧡橘色云』"
+    type: http
+    url: https://sub1.haiqilai.lol/api/v1/client/subscribe?token=ed55326225ddf7745eb3c79290ca548f
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 360
+  Miaona!:
+    override:
+      additional-suffix: "『💛Miaona!』"
+    type: http
+    url: https://miaona.org/api/v1/client/subscribe?token=b1d360cab0dd6185bdb53aed17471a10
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 360
+  极速:
+    override:
+      additional-suffix: "『💚Mitce』"
+    type: http
+    url: https://app.mitce.com/?sid=172982&token=srvznue
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 360
