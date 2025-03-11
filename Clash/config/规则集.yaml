@@ -22,7 +22,7 @@ proxy-groups:
   url: https://captive.apple.com/generate_204
   interval: 180
   tolerance: 100
-  filter: `马来西亚`,`新加坡|Singapore|SG|台湾|Taiwan|TW|香港|HK|Hong Kong|韩国|日本|Japan|菲律宾|泰国|印尼`
+  filter: '马来西亚'，'新加坡|Singapore|SG|台湾|Taiwan|TW|香港|HK|Hong Kong|韩国|日本|Japan|菲律宾|泰国|印尼'
 - name: "\U0001F4BC 勤勤恳恳"
   type: select
   disable-udp: true
