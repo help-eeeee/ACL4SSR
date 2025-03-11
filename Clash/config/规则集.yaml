@@ -1,19 +1,20 @@
 proxy-groups:
-- name: "\U0001F680 节点选择"
+- name: 节点选择
   type: select
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Airport.png
   proxies:
-  - "\U0001F1ED\U0001F1F0 香港节点"
-  - "\U0001F1E8\U0001F1F3 台湾节点"
-  - "\U0001F1F8\U0001F1EC 狮城节点"
-  - "\U0001F1EF\U0001F1F5 日本节点"
-  - "\U0001F1FA\U0001F1F2 美国节点"
-  - "\U0001F1F0\U0001F1F7 韩国节点"
-  - "\U0001F680 手动切换"
-  - "☯️ 故障转移"
+  - 香港节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 美国节点
+  - 韩国节点
+  - 手动切换
+  - 故障转移
   - DIRECT
-- name: "☯️ 故障转移"
+- name:  故障转移
   type: fallback
-  disable-udp: true
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Round_Robin.png
   use:
   - WgetCloud
   - 橘色云
@@ -22,183 +23,201 @@ proxy-groups:
   url: https://captive.apple.com/generate_204
   interval: 180
   tolerance: 100
-  filter: '马来西亚','新加坡|Singapore|SG|台湾|Taiwan|TW|香港|HK|Hong Kong|韩国|日本|Japan|菲律宾|泰国|印尼'
-- name: "\U0001F4BC 勤勤恳恳"
+  filter: (马来西亚)`(新加坡|Singapore|SG|台湾|Taiwan|TW|香港|HK|Hong Kong|韩国|日本|Japan|菲律宾|泰国|印尼)
+- name: 游戏人间
   type: select
-  disable-udp: true
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Dinosaur.png
   proxies:
-  - "☯️ 故障转移"
+  - 故障转移
   use:
   - WgetCloud
   - 橘色云
   - Miaona!
   - STC
-- name: "\U0001F916 人工智障"
+- name: 勤勤恳恳
   type: select
-  disable-udp: true
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Ox.png
   proxies:
-  - "☯️ 故障转移"
+  - 故障转移
   use:
   - WgetCloud
   - 橘色云
   - Miaona!
   - STC
-- name: "\U0001F3B6 TikTok"
+- name: 人工智障
   type: select
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - STC
-- name: "\U0001F680 手动切换"
-  type: select
-  use:
-  - WgetCloud
-  - 橘色云
-  - Miaona!
-  - STC
-- name: "\U0001F4F2 电报消息"
-  type: select
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Bot.png
   proxies:
-  - "\U0001F680 节点选择"
-  - "\U0001F1F8\U0001F1EC 狮城节点"
-  - "\U0001F1ED\U0001F1F0 香港节点"
-  - "\U0001F1E8\U0001F1F3 台湾节点"
-  - "\U0001F1EF\U0001F1F5 日本节点"
-  - "\U0001F1FA\U0001F1F2 美国节点"
-  - "\U0001F1F0\U0001F1F7 韩国节点"
-  - "\U0001F680 手动切换"
+  - 故障转移
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+- name: TikTok
+  type: select
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+- name: 手动切换
+  type: select
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Direct.png
+  use:
+  - WgetCloud
+  - 橘色云
+  - Miaona!
+  - STC
+- name: 电报消息
+  type: select
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
+  proxies:
+  - 节点选择
+  - 狮城节点
+  - 香港节点
+  - 台湾节点
+  - 日本节点
+  - 美国节点
+  - 韩国节点
+  - 手动切换
   - DIRECT
-- name: "\U0001F3A5 奈飞视频"
+- name: 奈飞视频
   type: select
-  disable-udp: true
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Netflix.png
   proxies:
-  - "\U0001F680 手动切换"
+  - 手动切换
   use:
   - WgetCloud
-- name: "\U0001F3A5 Disney"
+- name: Disney
   type: select
-  disable-udp: true
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Disney+_1.png
   proxies:
-  - "\U0001F680 手动切换"
+  - 手动切换
   use:
   - WgetCloud
-- name: "\U0001F3A5 HBO"
+- name: "HBO"
   type: select
-  disable-udp: true
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/HBO_Max.png
   proxies:
-  - "\U0001F680 手动切换"
+  - "手动切换"
   use:
   - WgetCloud
-- name: "\U0001F4FA 哔哩哔哩"
+- name: 哔哩哔哩
   type: select
-  disable-udp: true
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/bilibili_1.png
   proxies:
-  - "\U0001F3AF 全球直连"
+  - 全球直连
   use:
   - WgetCloud
   filter: "(台|新北|彰化|TW|Taiwan|港|HK|Hong Kong)"
-- name: Ⓜ️ 微软服务
+- name: 微软服务
   type: select
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Siri.png
   proxies:
   - DIRECT
-  - "\U0001F680 节点选择"
-  - "\U0001F1FA\U0001F1F2 美国节点"
-  - "\U0001F1ED\U0001F1F0 香港节点"
-  - "\U0001F1E8\U0001F1F3 台湾节点"
-  - "\U0001F1F8\U0001F1EC 狮城节点"
-  - "\U0001F1EF\U0001F1F5 日本节点"
-  - "\U0001F1F0\U0001F1F7 韩国节点"
-  - "\U0001F680 手动切换"
-- name: "\U0001F34E 苹果服务"
+  - 节点选择
+  - 美国节点
+  - 香港节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 韩国节点
+  - 手动切换
+- name: 苹果服务
   type: select
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple_2.png
   proxies:
   - DIRECT
-  - "\U0001F680 节点选择"
-  - "\U0001F1FA\U0001F1F2 美国节点"
-  - "\U0001F1ED\U0001F1F0 香港节点"
-  - "\U0001F1E8\U0001F1F3 台湾节点"
-  - "\U0001F1F8\U0001F1EC 狮城节点"
-  - "\U0001F1EF\U0001F1F5 日本节点"
-  - "\U0001F1F0\U0001F1F7 韩国节点"
-  - "\U0001F680 手动切换"
-- name: "\U0001F3AE 游戏平台"
+  - 节点选择
+  - 美国节点
+  - 香港节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 韩国节点
+  - 手动切换
+- name: 游戏平台
   type: select
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Game.png
   proxies:
   - DIRECT
-  - "\U0001F680 节点选择"
-  - "\U0001F1FA\U0001F1F2 美国节点"
-  - "\U0001F1ED\U0001F1F0 香港节点"
-  - "\U0001F1E8\U0001F1F3 台湾节点"
-  - "\U0001F1F8\U0001F1EC 狮城节点"
-  - "\U0001F1EF\U0001F1F5 日本节点"
-  - "\U0001F1F0\U0001F1F7 韩国节点"
-  - "\U0001F680 手动切换"
-- name: "\U0001F3AF 全球直连"
+  - 节点选择
+  - 美国节点
+  - 香港节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 韩国节点
+  - 手动切换
+- name: 全球直连
   type: select
+  icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China_Map.png
   proxies:
   - DIRECT
-  - "\U0001F680 节点选择"
-- name: "\U0001F41F 漏网之鱼"
+  - 节点选择
+- name: 漏网之鱼
   type: select
+  icon: https://fastly.jsdelivr.net/gh/Orz-3/mini/Color/Catnet.png
   proxies:
-  - "\U0001F680 节点选择"
+  - 节点选择
   - DIRECT
-  - "\U0001F1ED\U0001F1F0 香港节点"
-  - "\U0001F1E8\U0001F1F3 台湾节点"
-  - "\U0001F1F8\U0001F1EC 狮城节点"
-  - "\U0001F1EF\U0001F1F5 日本节点"
-  - "\U0001F1FA\U0001F1F2 美国节点"
-  - "\U0001F1F0\U0001F1F7 韩国节点"
-  - "\U0001F680 手动切换"
-- name: "\U0001F1ED\U0001F1F0 香港节点"
+  - 香港节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 美国节点
+  - 韩国节点
+  - 手动切换
+- name: 香港节点
   type: select
-  disable-udp: true
+  icon: https://fastly.jsdelivr.net/gh/Orz-3/mini/Color/HK.png
   use:
   - WgetCloud
   - 橘色云
   - Miaona!
   - STC
   filter: "(港|HK|Hong Kong)"
-- name: "\U0001F1EF\U0001F1F5 日本节点"
+- name: 日本节点
   type: select
-  disable-udp: true
+  icon: https://fastly.jsdelivr.net/gh/Orz-3/mini/Color/JP.png
   use:
   - WgetCloud
   - 橘色云
   - Miaona!
   - STC
   filter: "(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)"
-- name: "\U0001F1FA\U0001F1F2 美国节点"
+- name: 美国节点
   type: select
-  disable-udp: true
+  icon: https://fastly.jsdelivr.net/gh/Orz-3/mini/Color/US.png
   use:
   - WgetCloud
   - 橘色云
   - Miaona!
   - STC
   filter: "(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
-- name: "\U0001F1F8\U0001F1EC 狮城节点"
+- name: 狮城节点
   type: select
-  disable-udp: true
+  icon: https://fastly.jsdelivr.net/gh/Orz-3/mini/Color/SG.png
   use:
   - WgetCloud
   - 橘色云
   - Miaona!
   - STC
   filter: "(新加坡|坡|狮城|SG|Singapore)"
-- name: "\U0001F1E8\U0001F1F3 台湾节点"
+- name: 台湾节点
   type: select
-  disable-udp: true
+  icon: https://fastly.jsdelivr.net/gh/Orz-3/mini/Color/TW.png
   use:
   - WgetCloud
   - 橘色云
   - Miaona!
   - STC
   filter: "(台|新北|彰化|TW|Taiwan)"
-- name: "\U0001F1F0\U0001F1F7 韩国节点"
+- name: 韩国节点
   type: select
-  disable-udp: true
+  icon: https://fastly.jsdelivr.net/gh/Orz-3/mini/Color/KR.png
   use:
   - WgetCloud
   - 橘色云
@@ -214,57 +233,54 @@ rules:
 - SCRIPT,quic,REJECT,no-track
 - DOMAIN-KEYWORD,ahhhhfs,DIRECT
 - DOMAIN-KEYWORD,gov,DIRECT
-- "DOMAIN-KEYWORD,dmm,\U0001F1EF\U0001F1F5 日本节点"
-- "DOMAIN-KEYWORD,cu1.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,cu2.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,cu3.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,cu4.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,cu5.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,cu6.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,cu7.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,cu8.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,cu9.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,f1.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,f2.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,f3.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,f4.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,f5.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,f6.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,f7.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,f8.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,f9.,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,asytech,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,gacloud,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,crisp,\U0001F4BC 勤勤恳恳"
-- "DOMAIN-KEYWORD,apimicrosoft,\U0001F4BC 勤勤恳恳"
-- DOMAIN-KEYWORD,gtloli,☯️ 故障转移
-- "RULE-SET,BiliBili,\U0001F4FA 哔哩哔哩"
-- "RULE-SET,HBO,\U0001F3A5 HBO"
-- "RULE-SET,TikTok,\U0001F3B6 TikTok"
-- "RULE-SET,OpenAI,\U0001F916 人工智障"
-- "RULE-SET,DisneyPlus,\U0001F3A5 Disney"
-- "RULE-SET,GoogleFCM,\U0001F4E2 谷歌FCM"
-- RULE-SET,Bing,Ⓜ️ 微软Bing
-- RULE-SET,OneDrive,Ⓜ️ 微软云盘
-- RULE-SET,Microsoft,Ⓜ️ 微软服务
-- "RULE-SET,Nintendo,\U0001F3AE 游戏平台"
-- "RULE-SET,Steam,\U0001F3AE 游戏平台"
-- "RULE-SET,Sony,\U0001F3AE 游戏平台"
-- "RULE-SET,Origin,\U0001F3AE 游戏平台"
-- "RULE-SET,Epic,\U0001F3AE 游戏平台"
-- "RULE-SET,Bahamut,\U0001F4FA 巴哈姆特"
-- "RULE-SET,Netflix,\U0001F3A5 奈飞视频"
-- "RULE-SET,applications,\U0001F3AF 全球直连"
+- "DOMAIN-KEYWORD,dmm,日本节点"
+- "DOMAIN-KEYWORD,cu1.,勤勤恳恳"
+- "DOMAIN-KEYWORD,cu2.,勤勤恳恳"
+- "DOMAIN-KEYWORD,cu3.,勤勤恳恳"
+- "DOMAIN-KEYWORD,cu4.,勤勤恳恳"
+- "DOMAIN-KEYWORD,cu5.,勤勤恳恳"
+- "DOMAIN-KEYWORD,cu6.,勤勤恳恳"
+- "DOMAIN-KEYWORD,cu7.,勤勤恳恳"
+- "DOMAIN-KEYWORD,cu8.,勤勤恳恳"
+- "DOMAIN-KEYWORD,cu9.,勤勤恳恳"
+- "DOMAIN-KEYWORD,f1.,勤勤恳恳"
+- "DOMAIN-KEYWORD,f2.,勤勤恳恳"
+- "DOMAIN-KEYWORD,f3.,勤勤恳恳"
+- "DOMAIN-KEYWORD,f4.,勤勤恳恳"
+- "DOMAIN-KEYWORD,f5.,勤勤恳恳"
+- "DOMAIN-KEYWORD,f6.,勤勤恳恳"
+- "DOMAIN-KEYWORD,f7.,勤勤恳恳"
+- "DOMAIN-KEYWORD,f8.,勤勤恳恳"
+- "DOMAIN-KEYWORD,f9.,勤勤恳恳"
+- "DOMAIN-KEYWORD,asytech,勤勤恳恳"
+- "DOMAIN-KEYWORD,gacloud,勤勤恳恳"
+- "DOMAIN-KEYWORD,crisp,勤勤恳恳"
+- "DOMAIN-KEYWORD,apimicrosoft,勤勤恳恳"
+- "RULE-SET,BiliBili,哔哩哔哩"
+- "RULE-SET,HBO,HBO"
+- "RULE-SET,TikTok,TikTok"
+- "RULE-SET,OpenAI,人工智障"
+- "RULE-SET,DisneyPlus,Disney"
+- RULE-SET,Bing,微软服务
+- RULE-SET,OneDrive,微软服务
+- RULE-SET,Microsoft,微软服务
+- "RULE-SET,Nintendo,游戏平台"
+- "RULE-SET,Steam,游戏平台"
+- "RULE-SET,Sony,游戏平台"
+- "RULE-SET,Origin,游戏平台"
+- "RULE-SET,Epic,游戏平台"
+- "RULE-SET,Netflix,奈飞视频"
+- "RULE-SET,applications,全球直连"
 - RULE-SET,private,DIRECT
-- "RULE-SET,icloud,\U0001F34E 苹果服务"
-- "RULE-SET,apple,\U0001F34E 苹果服务"
-- "RULE-SET,google,\U0001F680 节点选择"
-- "RULE-SET,proxy,\U0001F680 节点选择"
-- "RULE-SET,direct,\U0001F3AF 全球直连"
+- "RULE-SET,icloud,苹果服务"
+- "RULE-SET,apple,苹果服务"
+- "RULE-SET,google,节点选择"
+- "RULE-SET,proxy,节点选择"
+- "RULE-SET,direct,全球直连"
 - RULE-SET,lancidr,DIRECT
-- "RULE-SET,cncidr,\U0001F3AF 全球直连"
-- "RULE-SET,telegramcidr,\U0001F4F2 电报消息"
-- "MATCH,\U0001F41F 漏网之鱼"
+- "RULE-SET,cncidr,全球直连"
+- "RULE-SET,telegramcidr,电报消息"
+- "MATCH,漏网之鱼"
 proxy-providers:
   WgetCloud:
     override:
@@ -482,3 +498,4 @@ dns:
       "119.29.29.29",
     ]
   fake-ip-filter: ['*.lan', '*.localdomain', '*.example', '*.invalid', '*.localhost', '*.test', '*.local', '*.home.arpa', 'time.*.com', 'time.*.gov', 'time.*.edu.cn', 'time.*.apple.com', 'time1.*.com', 'time2.*.com', 'time3.*.com', 'time4.*.com', 'time5.*.com', 'time6.*.com', 'time7.*.com', 'ntp.*.com', 'ntp1.*.com', 'ntp2.*.com', 'ntp3.*.com', 'ntp4.*.com', 'ntp5.*.com', 'ntp6.*.com', 'ntp7.*.com', '*.time.edu.cn', '*.ntp.org.cn', +.pool.ntp.org, time1.cloud.tencent.com, music.163.com, '*.music.163.com', '*.126.net', musicapi.taihe.com, music.taihe.com, songsearch.kugou.com, trackercdn.kugou.com, '*.kuwo.cn', api-jooxtt.sanook.com, api.joox.com, joox.com, y.qq.com, '*.y.qq.com', streamoc.music.tc.qq.com, mobileoc.music.tc.qq.com, isure.stream.qqmusic.qq.com, dl.stream.qqmusic.qq.com, aqqmusic.tc.qq.com, amobile.music.tc.qq.com, '*.xiami.com', '*.music.migu.cn', music.migu.cn, +.msftconnecttest.com, +.msftncsi.com, msftconnecttest.com, msftncsi.com, localhost.ptlogin2.qq.com, localhost.sec.qq.com, +.srv.nintendo.net, +.stun.playstation.net, 'xbox.*.microsoft.com', xnotify.xboxlive.com, +.ipv6.microsoft.com, +.battlenet.com.cn, +.wotgame.cn, +.wggames.cn, +.wowsgame.cn, +.wargaming.net, proxy.golang.org, 'stun.*.*', 'stun.*.*.*', '+.stun.*.*', '+.stun.*.*.*', '+.stun.*.*.*.*', heartbeat.belkin.com, '*.linksys.com', '*.linksyssmartwifi.com', '*.router.asus.com', mesu.apple.com, swscan.apple.com, swquery.apple.com, swdownload.apple.com, swcdn.apple.com, swdist.apple.com, lens.l.google.com, stun.l.google.com, '*.square-enix.com', '*.finalfantasyxiv.com', '*.ffxiv.com', '*.ff14.sdo.com', ff.dorado.sdo.com, '*.mcdn.bilivideo.cn', +.media.dssott.com, +.pvp.net]
+  
