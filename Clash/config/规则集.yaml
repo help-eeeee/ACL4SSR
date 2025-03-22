@@ -21,7 +21,7 @@ proxy-groups:
   - Miaona!
   - STC
   interval: 60
-  filter: (马来西亚)`(新加坡|Singapore|SG|台湾|Taiwan|TW|香港|HK|Hong Kong|韩国|日本|Japan|菲律宾|泰国|印尼)
+  filter: (新加坡|Singapore|SG|台湾|Taiwan|TW|香港|HK|Hong Kong|韩国|日本|Japan|菲律宾|泰国|印尼|马来西亚)
 - name: 游戏人间
   type: select
   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Dinosaur.png
